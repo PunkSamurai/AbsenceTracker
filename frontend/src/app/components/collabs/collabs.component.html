@@ -1,0 +1,23 @@
+<h2> Collabs List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Matr</th>
+            <th>Nom </th>
+            <th>Prenom</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let collab of collabs" >
+            <td> {{ collab.matr }} </td>
+            <td> {{ collab.nom }} </td>
+            <td> {{ collab.prenom }} </td>
+            <td>
+                <button class = "btn btn-info"> Update</button>
+                <button  class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button  class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
