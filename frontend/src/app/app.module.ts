@@ -6,11 +6,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CollabsComponent } from './components/collabs/collabs.component';
+import { AddCollabComponent } from './components/add-collab/add-collab.component';
+import { UpdateCollabComponent } from './components/update-collab/update-collab.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CollabsComponent
+    CollabsComponent,
+    AddCollabComponent,
+    UpdateCollabComponent
   ],
   imports: [
     BrowserModule,

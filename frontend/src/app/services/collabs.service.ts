@@ -14,5 +14,21 @@ export class CollabsService {
   getCollabs(): Observable<Collab[]> {
     return this.http.get<Collab[]>(this.apiUrl)
   }
+  addCollab(collab: Collab): Observable<Collab>{
+   return this.http.post<Collab>(this.apiUrl,collab)
+  }
+
+  getCollabByMatr(matr : string): Observable<Collab>{
+    return this.http.get<Collab>(`${this.apiUrl}/${matr}`);
+   }
+   
+  updateCollab(matr : string, collab: Collab): Observable<Collab>{
+    return this.http.put(`${this.apiUrl}/${matr}`, collab);
+  }
+  deleteCollab(matr : string): Observable<Collab>{
+    return this.http.delete(`${this.apiUrl}/${matr}`);
+  }
+   
+
 
 }

@@ -1,13 +1,18 @@
 package com.gesabs.projet.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Data
+
 @Entity
+@Data
+@Getter
+@Setter
 public class Collaborateur {
     @Id
     @Column(length = 64)
@@ -16,5 +21,13 @@ public class Collaborateur {
     private String prenom;
 
 
+
+    public Collaborateur(String matr, String nom, String prenom) {
+        this.matr = matr;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+    public Collaborateur() {
+    }
 
 }
