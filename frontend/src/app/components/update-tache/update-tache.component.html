@@ -1,0 +1,27 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Update Service </h3>
+    <form >
+        <div class="form-group">
+            <label> id</label>
+            <input type="text" class ="form-control" id = "id"
+                [(ngModel)] = "service.id" name = "id" disabled>
+        </div>
+    
+        <div class="form-group">
+            <label> Intitule</label>
+            <input type="text" class ="form-control" id = "intitulService"
+                [(ngModel)] = "service.intitulService" name = "intitulService">
+        </div>
+    
+        <!-- <div class="form-group">
+            <label> Prenom</label>
+            <input type="text" class ="form-control" id = "prenom"
+                [(ngModel)] = "collab.prenom" name = "prenom">
+        </div> -->
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 
+
+    <!-- (ngSubmit) = "onSubmit()"> -- -->
