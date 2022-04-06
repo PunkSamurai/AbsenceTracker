@@ -45,6 +45,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -59,6 +64,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+
                 </configuration>
             </plugin>
         </plugins>
