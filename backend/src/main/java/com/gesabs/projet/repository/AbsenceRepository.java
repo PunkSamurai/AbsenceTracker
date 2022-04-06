@@ -1,14 +1,13 @@
 package com.gesabs.projet.repository;
 
+import com.gesabs.projet.model.Absence;
 import com.gesabs.projet.model.Collaborateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CollabRepository  extends JpaRepository<Collaborateur,String> {
+public interface AbsenceRepository  extends JpaRepository<Absence,Integer> {
 
-//	@Query("SELECT u FROM collaborateur")
-//	Collection<User> findAllActiveUsers();
 
 
 

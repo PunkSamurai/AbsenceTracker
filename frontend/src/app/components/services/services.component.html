@@ -1,0 +1,33 @@
+
+<h2> Services List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Intitule </th>
+            <th>taches</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let service of services" >
+            <td> {{ service.id }} </td>
+            <td> {{ service.intitulService }} </td>
+            <td >
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption">
+                    <option selected >Voir les taches</option>
+                    <option *ngFor = "let tache of service.taches" value="{{tache.id}}"> {{tache.intitulTache}}</option>
+            
+                  </select>
+                
+               
+                
+                 </td>
+            <td>
+                <button (click)="updateTache(service.id)" class = "btn btn-info"> Update</button>
+                <button  class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button  class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -5,16 +5,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddCollabComponent } from './components/add-collab/add-collab.component';
 import { CollabsComponent } from './components/collabs/collabs.component';
+
+import { ServicesComponent } from './components/services/services.component';
+import { UpdateCollabComponent } from './components/update-collab/update-collab.component';
+import { UpdateTacheComponent } from './components/update-tache/update-tache.component';
+
 import { AddCollabComponent } from './components/add-collab/add-collab.component';
 import { UpdateCollabComponent } from './components/update-collab/update-collab.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CollabsComponent,
+
+    ServicesComponent,
     AddCollabComponent,
-    UpdateCollabComponent
+    UpdateCollabComponent,
+    UpdateTacheComponent 
+
   ],
   imports: [
     BrowserModule,
