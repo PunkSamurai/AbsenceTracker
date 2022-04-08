@@ -3,8 +3,10 @@ package com.gesabs.projet.controller;
 import org.springframework.web.bind.annotation.*;
 import com.gesabs.projet.model.Collaborateur;
 import com.gesabs.projet.model.Service;
+import com.gesabs.projet.model.Tache;
 import com.gesabs.projet.services.CollabService;
 import com.gesabs.projet.services.ServiceService;
+import com.gesabs.projet.services.TacheService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +34,8 @@ public class AppController {
 
     @Autowired
     private ServiceService serviceService;
+    @Autowired
+    private TacheService tacheService;
     
     //------------------------------------Collabs------------------------------------
     
@@ -76,20 +80,89 @@ public class AppController {
     public List<Service> finAllServices() {
         return serviceService.getServices();
     }
-
-    //het service by id
+    //Add Service
+    @PostMapping("/services")
+    public Service addService(@RequestBody Service service) {
+        return serviceService.addService(service);
+    }
+    //get service by id
     @GetMapping("/services/{id}")
     public com.gesabs.projet.model.Service getService(@PathVariable String id) {
     	int i=Integer.parseInt(id);
         return serviceService.getService(i);
     }
     
+    
+    //update service
+    
+   
+    @PutMapping("/services/{id}")
+    public Service updateService(@PathVariable String id,@RequestBody Service service) {
+    	int i=Integer.parseInt(id);
+        return serviceService.updateService(service,i);
+    }
+    
+    //Delete Service
+    @DeleteMapping("/services/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteService(@PathVariable String id){
+    	int i=Integer.parseInt(id);
+         serviceService.deleteService(i);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
+    }
+    
+
 //    @PostMapping("/collabs")
 //    public List<Collaborateur> addCollabs() {
 //        return collabService.addCollabs();
 //    }
 
 
+    //-----------------------------------------Tache-----------------------------------
 
 
+    
+    //get all taches
+    @GetMapping("/taches")
+    public List<Tache> finAllTaches() {
+        return tacheService.getTaches();
+    }
+    //get tache by id
+    
+    @GetMapping("/taches/{id}")
+    public Tache getTache(@PathVariable String id) {
+    	int i=Integer.parseInt(id);
+        return tacheService.getTache(i);
+    }
+    //add tache
+    @PostMapping("/taches")
+    public Tache addTache(@RequestBody Tache tache) {
+        return tacheService.addTache(tache);
+    }
+    
+    //Update tache
+    @PutMapping("/taches/{id}")
+    public Tache updateTache(@PathVariable String id,@RequestBody Tache tache) {
+    	int i=Integer.parseInt(id);
+        return tacheService.updateTache(tache,i);
+    }
+    //ad tache to service
+    @PostMapping("/taches/{id}")
+    public Tache addTachetoService(@RequestBody Tache tache,@PathVariable String id) {
+    	
+        return tacheService.addTachetoService(tache,id);
+    }
+    
+    //delete tache
+    @DeleteMapping("/taches/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteTache(@PathVariable String id){
+    	int i =Integer.parseInt(id);
+         tacheService.deleteTache(i);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
+    }
+    
+   
 }

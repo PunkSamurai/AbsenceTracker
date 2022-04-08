@@ -1,5 +1,8 @@
 
 <h2> Services List</h2>
+<div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-primary" style="margin-left: 1180px" (click)="goToAdd()">Add Service</button>
+</div>
 <table class = "table table-striped">
     <thead>
         <tr>
@@ -7,6 +10,7 @@
             <th>Intitule </th>
             <th>taches</th>
             <th>Actions</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -17,16 +21,27 @@
                 <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption">
                     <option selected >Voir les taches</option>
                     <option *ngFor = "let tache of service.taches" value="{{tache.id}}"> {{tache.intitulTache}}</option>
-            
+                    <!-- <option > -->
+                        <!-- <div class="form-group">
+                            <label>add tache</label> -->
+                            <!-- <input type="text" class ="form-control" id = "tacheToAdd"
+                           name = "tacheToAdd" placeholder="add tache"> -->
+                        <!-- </div> -->
+                    <!-- </option> -->
                   </select>
                 
-               
                 
                  </td>
             <td>
-                <button (click)="updateTache(service.id)" class = "btn btn-info"> Update</button>
-                <button  class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                <button  class = "btn btn-info" style="margin-left: 10px"> View</button>
+                <button (click)="updateTache(service.id)" class = "btn btn-info"> Update Task</button>
+                
+                <button (click)="deleteTache()" class = "btn btn-warning"  style="margin-left: 10px"> Delete Task</button>
+                
+                <button  class = "btn btn-success" (click)="addTacheToService(service.id)" style="margin-left: 10px"> Add Task to Service </button>
+
+
+                <button  class = "btn btn-danger" (click)="deleteService(service.id)" style="margin-left: 10px"> Delete Service </button>
+                
             </td>
         </tr>
     </tbody>
