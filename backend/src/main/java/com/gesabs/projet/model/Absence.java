@@ -1,5 +1,7 @@
 package com.gesabs.projet.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,25 +23,29 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
-@Data
 @Entity
+@Data
+@Getter
+@Setter
+@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
 public class Absence {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "collab_tahce_id")
-    private int id;
+	@Column(name = "collab_tache_id")
+	private int id;
 	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Collab_matr")  
-	private Tache tache;
-	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tache_id")  
+	@JoinColumn(name = "Collab_matr")
 	private Collaborateur collaborateur;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tache_id")
+	private Tache tache;
 	private Date date;
-	private String heurDebut;
-	private String heurfin;
+	private String heureDebut;
+	private String heureFin;
 	private String motif;
 
-   
+
+
 
 
 

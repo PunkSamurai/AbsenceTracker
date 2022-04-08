@@ -1,5 +1,8 @@
 package com.gesabs.projet.controller;
 
+import com.gesabs.projet.AbsenceInfo;
+import com.gesabs.projet.model.Absence;
+import com.gesabs.projet.services.AbsenceService;
 import org.springframework.web.bind.annotation.*;
 import com.gesabs.projet.model.Collaborateur;
 import com.gesabs.projet.model.Service;
@@ -34,8 +37,13 @@ public class AppController {
 
     @Autowired
     private ServiceService serviceService;
+
     @Autowired
     private TacheService tacheService;
+
+    @Autowired
+    private AbsenceService absenceService;
+
     
     //------------------------------------Collabs------------------------------------
     
@@ -163,6 +171,39 @@ public class AppController {
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
-    
-   
+
+
+    //-----------------------------------------Absence-----------------------------------
+
+    //get all Absences
+    @GetMapping("/abs")
+    public List<AbsenceInfo> finAllAbsences() {
+        return absenceService.getAbsences();
+    }
+    //Add Absence
+    @PostMapping("/absences")
+    public Absence addAbs(@RequestBody Absence Absence ) {
+        return absenceService.addAbsence(Absence);
+    }
+
+    //Update Absence
+    @PutMapping("/absences/{collab_tache_id}")
+    public Absence updateAbs(@PathVariable int collab_tache_id,@RequestBody Absence Absence) {
+        return absenceService.updateAbs(Absence,collab_tache_id);
+    }
+    //Delete Absence
+    @DeleteMapping("/absences/{collab_tache_id}")
+    public ResponseEntity<Map<String, Boolean>> deleteAbs(@PathVariable int collab_tache_id){
+        absenceService.deleteAbs(collab_tache_id);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
+    }
+    //Get Absence by id
+    @GetMapping("/absences/{collab_tache_id}")
+    public Object getAbs(@PathVariable int collab_tache_id) {
+        return absenceService.getAbs(collab_tache_id);
+    }
+
+
 }
