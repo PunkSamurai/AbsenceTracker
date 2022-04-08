@@ -1,16 +1,14 @@
 <div class="col-md-6 offset-md-3">
-    <h3>Update Tache and Service </h3>
+    <h3>Add tache to Service </h3>
     <form  (ngSubmit) = "onSubmit()">
-
         <div class="form-group">
-
-            <label> Intitule Service </label>
+            <label> Tache identifiant</label>
             <input type="text" class ="form-control" id = "service.intitulService"
-                [(ngModel)] = "service.intitulService" name = "service.intitulService" >
+                [(ngModel)] = "tache.id" name = "service.intitulService" >
         </div>
     
         <div class="form-group">
-            <label> Intitule Tache</label>
+            <label> Tache Intitule</label>
             <input type="text" class ="form-control" id = "intitulTache"
                 [(ngModel)] = "tache.intitulTache" name = "intitulTache">
         </div>
@@ -20,5 +18,3 @@
     
     </form>
     </div> 
-
-    <!-- (ngSubmit) = "onSubmit()"> -- -->

@@ -10,6 +10,9 @@ import { CollabsComponent } from './components/collabs/collabs.component';
 import { ServicesComponent } from './components/services/services.component';
 import { UpdateCollabComponent } from './components/update-collab/update-collab.component';
 import { UpdateTacheComponent } from './components/update-tache/update-tache.component';
+import { AddTacheComponent } from './components/add-tache/add-tache.component';
+import { AddTacheToServiceComponent } from './components/add-tache-to-service/add-tache-to-service.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import { UpdateTacheComponent } from './components/update-tache/update-tache.com
     ServicesComponent,
     AddCollabComponent,
     UpdateCollabComponent,
-    UpdateTacheComponent 
+    UpdateTacheComponent,
+    AddTacheComponent,
+    AddTacheToServiceComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

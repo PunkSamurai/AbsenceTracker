@@ -20,8 +20,8 @@ public class CollabService {
     //save
    public Collaborateur addCollab(Collaborateur c) {
 	   return collabRepository.save(c);
-	
         }
+   
    //get by id
    public Collaborateur getCollab(String matr) {
        return collabRepository.findById(matr).orElseThrow();

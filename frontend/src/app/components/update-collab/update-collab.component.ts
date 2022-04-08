@@ -28,6 +28,7 @@ export class UpdateCollabComponent implements OnInit {
   
   onSubmit(){
     this.collabService.updateCollab(this.matr, this.collab).subscribe((data)=> console.log(data))
+    console.log("request body",this.collab)
     this.goToCollabList();
     }
 
