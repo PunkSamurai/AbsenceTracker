@@ -17,7 +17,7 @@
                   
         <div class="form-group">
         <label>Select Tache : </label>
-        <select name="tacheSelect" class="form-select" aria-label="Default select example" [(ngModel)]="abs.tache">
+        <select name="tacheSelect" class="form-select" aria-label="Default select example" [(ngModel)]="abs.tache_id">
             <option selected >Voir les Taches</option>
             <option *ngFor = "let tache of taches" value="{{tache.id}}"> {{ tache.intitule_tache }} </option>
         </select>

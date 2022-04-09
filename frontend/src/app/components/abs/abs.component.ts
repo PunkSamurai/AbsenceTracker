@@ -16,7 +16,7 @@ export class AbsComponent implements OnInit {
   Absens?: Abs[];
   Abs?: Abs;
 
-  constructor(private router : Router,private matDialog: MatDialog,private absService: AbsService) { }
+  constructor(private router : Router,private matDialog: MatDialog,private absService: AbsService) {   this.getAbs();}
 
   ngOnInit(): void {
     this.getAbs();

@@ -16,8 +16,6 @@ export class AddAbsComponent implements OnInit {
   collabs?: Collab[];
   taches?: Tache[];
   abs: Abs = new Abs();
-  status : any = "Completed";
-  tacheSelect : any = "Completed";
   constructor(private absService:AbsService,private collabService : CollabsService,private tacheService : TacheService,private router :Router) {
   
     this.collabService.getCollabs().subscribe(items =>{
@@ -38,7 +36,7 @@ export class AddAbsComponent implements OnInit {
     })
   }
   saveAbs() {
-    this.absService.addAbs(this.abs).subscribe(
+    this.absService.addAbs(this.abs,this.abs.collab_matr!,this.abs.tache_id!).subscribe(
       (data) =>  console.log(data));
       this.goToAbsList(); 
   }
