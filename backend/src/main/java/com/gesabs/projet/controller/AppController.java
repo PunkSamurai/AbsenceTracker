@@ -182,9 +182,11 @@ public class AppController {
         return absenceService.getAbsences();
     }
     //Add Absence
-    @PostMapping("/abs")
-    public Absence addAbs(@RequestBody Absence Absence ) {
-        return absenceService.addAbsence(Absence);
+    //ad collab and tache to abs
+    @PostMapping("/abs/{idc}/{idt}")
+    public Absence addAbs(@RequestBody Absence Absence,@PathVariable String idc,@PathVariable String idt) {
+
+        return  absenceService.addAbsence(Absence,idc,idt);
     }
 
     //Update Absence

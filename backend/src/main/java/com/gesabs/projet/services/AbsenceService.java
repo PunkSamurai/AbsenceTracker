@@ -33,7 +33,13 @@ public class AbsenceService {
 
         return absenceRepository.findAbsences();
     }
-    public Absence addAbsence(Absence a) {
+    public Absence addAbsence(Absence a,String idc,String idt) {
+        int newid_t=Integer.parseInt(idt);
+        Absence newAbs=a;
+        Collaborateur c = collabRepository.findById(idc).orElseThrow();
+        Tache t = tacheRepository.findById(newid_t).orElseThrow();
+        a.setCollaborateur(c);
+        a.setTache(t);
         return absenceRepository.save(a);
     }
     //Update
