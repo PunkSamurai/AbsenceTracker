@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatDialogModule} from '@angular/material/dialog'
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { AbsDetailsComponent } from './components/abs-details/abs-details.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AbsComponent } from './components/abs/abs.component';
+import { AddAbsComponent } from './components/add-abs/add-abs.component';
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import { AbsComponent } from './components/abs/abs.component';
     UpdateTacheComponent,
     AddTacheComponent,
     AddTacheToServiceComponent,
-    AbsComponent
+    AbsComponent,
+    AbsDetailsComponent,
+    AddAbsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { AbsComponent } from './components/abs/abs.component';
     FormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

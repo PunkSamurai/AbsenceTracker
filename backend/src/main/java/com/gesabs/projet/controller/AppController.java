@@ -1,6 +1,7 @@
 package com.gesabs.projet.controller;
 
 import com.gesabs.projet.AbsenceInfo;
+import com.gesabs.projet.TacheInfo;
 import com.gesabs.projet.model.Absence;
 import com.gesabs.projet.services.AbsenceService;
 import org.springframework.web.bind.annotation.*;
@@ -133,7 +134,7 @@ public class AppController {
     
     //get all taches
     @GetMapping("/taches")
-    public List<Tache> finAllTaches() {
+    public List<TacheInfo> finAllTaches() {
         return tacheService.getTaches();
     }
     //get tache by id
@@ -181,18 +182,18 @@ public class AppController {
         return absenceService.getAbsences();
     }
     //Add Absence
-    @PostMapping("/absences")
+    @PostMapping("/abs")
     public Absence addAbs(@RequestBody Absence Absence ) {
         return absenceService.addAbsence(Absence);
     }
 
     //Update Absence
-    @PutMapping("/absences/{collab_tache_id}")
+    @PutMapping("/abs/{collab_tache_id}")
     public Absence updateAbs(@PathVariable int collab_tache_id,@RequestBody Absence Absence) {
         return absenceService.updateAbs(Absence,collab_tache_id);
     }
     //Delete Absence
-    @DeleteMapping("/absences/{collab_tache_id}")
+    @DeleteMapping("/abs/{collab_tache_id}")
     public ResponseEntity<Map<String, Boolean>> deleteAbs(@PathVariable int collab_tache_id){
         absenceService.deleteAbs(collab_tache_id);
         Map<String, Boolean> response = new HashMap<>();
@@ -200,8 +201,8 @@ public class AppController {
         return ResponseEntity.ok(response);
     }
     //Get Absence by id
-    @GetMapping("/absences/{collab_tache_id}")
-    public Object getAbs(@PathVariable int collab_tache_id) {
+    @GetMapping("/abs/{collab_tache_id}")
+    public List<AbsenceInfo> getAbs(@PathVariable int collab_tache_id) {
         return absenceService.getAbs(collab_tache_id);
     }
 

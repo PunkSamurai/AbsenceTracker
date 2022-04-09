@@ -15,7 +15,9 @@ export class TacheService {
   constructor(private http: HttpClient) { }
  
   
- 
+  getTaches(): Observable<Tache[]> {
+    return this.http.get<Tache[]>(this.apiUrl)
+  }
   getTacheById(id : number): Observable<Tache>{
     return this.http.get<Tache>(`${this.apiUrl}/${id}`);
    }

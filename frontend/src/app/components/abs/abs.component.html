@@ -1,7 +1,8 @@
 
 <h2> Absences List</h2>
 <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-primary" style="margin-left: 1180px">Add Abs</button>
+    <button type="button" class="btn btn-primary" (click)="goToAdd()" style="margin-left: 1180px">Add Abs</button>
+   
 </div>
 <table class = "table table-striped">
     <thead>
@@ -25,7 +26,7 @@
 
             <td>
                 <button  class = "btn btn-info"> Update Abs</button>
-                
+                <button  (click)="viewDetails(abs.collab_tache_id!)" class = "btn btn-primary">Details</button>
                 <button  class = "btn btn-warning"  style="margin-left: 10px"> Delete Abs</button>
     
                 <button  class = "btn btn-success" style="margin-left: 10px"> Add Abs </button>

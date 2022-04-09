@@ -14,5 +14,10 @@ export class AbsService {
   getAbs(): Observable<Abs[]> {
     return this.http.get<Abs[]>(this.apiUrl)
   }
-
+  getAbsById(id : number): Observable<Abs[]>{
+    return this.http.get<Abs[]>(`${this.apiUrl}/${id}`);
+   }
+   addAbs(abs: Abs): Observable<Abs>{
+    return this.http.post<Abs>(this.apiUrl,abs)
+   }
 }

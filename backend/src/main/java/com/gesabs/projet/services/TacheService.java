@@ -1,5 +1,6 @@
 package com.gesabs.projet.services;
 
+import com.gesabs.projet.TacheInfo;
 import com.gesabs.projet.model.Collaborateur;
 import com.gesabs.projet.model.Tache;
 import com.gesabs.projet.repository.CollabRepository;
@@ -8,9 +9,10 @@ import com.gesabs.projet.repository.TacheRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @Service
 public class TacheService {
     @Autowired
@@ -19,8 +21,8 @@ public class TacheService {
     private ServiceRepository serviceRepository;
    //get all taches
     
-    public List<Tache> getTaches() {
-        return tacheRepository.findAll();
+    public List<TacheInfo> getTaches() {
+        return tacheRepository.findAllTaches();
     }
     
     //get tache by id

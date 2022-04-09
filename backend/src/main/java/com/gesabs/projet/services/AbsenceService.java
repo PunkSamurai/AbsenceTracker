@@ -55,7 +55,7 @@ public class AbsenceService {
 
     //Get Absence by id
 
-    public Object getAbs(int collab_tache_id) {
+    public List<AbsenceInfo> getAbs(int collab_tache_id) {
         return absenceRepository.findByIdAbs(collab_tache_id);
     }
 

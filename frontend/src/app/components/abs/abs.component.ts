@@ -3,6 +3,7 @@ import { Abs } from 'src/app/Absence';
 import { AbsService } from 'src/app/services/abs.service';
 import {MatDialog} from '@angular/material/dialog'
 import { AbsDetailsComponent } from '../abs-details/abs-details.component';
+import { Router } from '@angular/router';
 
 
 
@@ -13,11 +14,11 @@ import { AbsDetailsComponent } from '../abs-details/abs-details.component';
 })
 export class AbsComponent implements OnInit {
   Absens?: Abs[];
+  Abs?: Abs;
 
-  constructor(private matDialog: MatDialog,private absService: AbsService) { }
+  constructor(private router : Router,private matDialog: MatDialog,private absService: AbsService) { }
 
   ngOnInit(): void {
-   
     this.getAbs();
   }
   private getAbs(){
@@ -28,8 +29,13 @@ export class AbsComponent implements OnInit {
       });
     
   }
- onOpenDetails(){
-      this.matDialog.open(AbsDetailsComponent,{data :this.Absens});
+  viewDetails(id : number){
+    this.matDialog.open(AbsDetailsComponent,
+       {data : id });
+
+    }
+    goToAdd(){
+      this.router.navigate(["add-abs"]);
     }
   
 }
