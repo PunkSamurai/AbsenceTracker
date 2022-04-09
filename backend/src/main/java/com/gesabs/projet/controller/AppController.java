@@ -1,6 +1,7 @@
 package com.gesabs.projet.controller;
 
 import com.gesabs.projet.AbsenceInfo;
+import com.gesabs.projet.CollabInfo;
 import com.gesabs.projet.TacheInfo;
 import com.gesabs.projet.model.Absence;
 import com.gesabs.projet.services.AbsenceService;
@@ -50,7 +51,7 @@ public class AppController {
     
     //get all collabs
     @GetMapping("/collabs")
-    public List<Collaborateur> finAllCollabs() {
+    public List<CollabInfo> finAllCollabs() {
         return collabService.getCollabs();
     }
     

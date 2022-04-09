@@ -1,5 +1,6 @@
 package com.gesabs.projet.services;
 
+import com.gesabs.projet.CollabInfo;
 import com.gesabs.projet.model.Collaborateur;
 import com.gesabs.projet.repository.CollabRepository;
 import org.apache.velocity.exception.ResourceNotFoundException;
@@ -15,8 +16,8 @@ public class CollabService {
     private CollabRepository collabRepository;
     
     //get all
-    public List<Collaborateur> getCollabs() {
-        return collabRepository.findAll();
+    public List<CollabInfo> getCollabs() {
+        return collabRepository.findAllCollabs();
     }
 
     
