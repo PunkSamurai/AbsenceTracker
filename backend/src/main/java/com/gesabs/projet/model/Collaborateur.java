@@ -17,8 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-
-
 @Entity
 @Data
 @Getter
@@ -29,8 +27,11 @@ import javax.persistence.OneToMany;
     @Id
     @Column(length = 64)
     private String matr;
+    @Column(nullable = false)
     private String nom;
+    @Column(nullable = false)
     private String prenom;
+
 	@OneToMany(mappedBy = "collaborateur")
 	private List<Absence> absences;
 	

@@ -27,7 +27,7 @@ export class AbsComponent implements OnInit {
         this.Absens=items;
         console.log("Abss",items);
       });
-    
+
   }
   viewDetails(id : number){
     this.matDialog.open(AbsDetailsComponent,
@@ -37,23 +37,33 @@ export class AbsComponent implements OnInit {
     goToAdd(){
       this.router.navigate(["add-abs"]);
     }
-  
+    updateAbs(id: number){
+      this.router.navigate(['update-abs', id]);
+    }
+
+    deleteAbs(id: number){
+      this.absService.deleteAbs(id).subscribe((data)=> {
+        console.log(data);
+        this.ngOnInit();
+      })
+    }
+
 }
 
 /*
 
 function arrayToJSONObject (k: any){
-  
+
 //array.
 var keyd = ["collab_nom", "collab_prenom", "tache", "date","h_debut","h_fin","motif"]
 
 k.unshift(keyd)
 
     var keys = k[0];
- 
+
     //vacate keys from main array
     var newArr = k.slice(1, k.length);
- 
+
     var formatted = [],
     data = newArr,
     cols = keys,
@@ -67,7 +77,7 @@ k.unshift(keyd)
     }
     console.log("shlo",formatted);
 
-  
+
 }
 
 

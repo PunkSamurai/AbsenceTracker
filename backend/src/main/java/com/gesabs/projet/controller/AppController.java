@@ -203,11 +203,15 @@ public class AppController {
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
-    //Get Absence by id
+    //Get Absence by id for details
     @GetMapping("/abs/{collab_tache_id}")
-    public List<AbsenceInfo> getAbs(@PathVariable int collab_tache_id) {
+    public Absence getAbs(@PathVariable int collab_tache_id) {
         return absenceService.getAbs(collab_tache_id);
     }
+
+
+
+
 
 
 }

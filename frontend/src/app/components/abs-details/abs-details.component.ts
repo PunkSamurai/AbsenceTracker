@@ -10,14 +10,14 @@ import { AbsService } from 'src/app/services/abs.service';
   styleUrls: ['./abs-details.component.css']
 })
 export class AbsDetailsComponent implements OnInit {
-  absDetil?: Abs[];
+  abs : Abs = new Abs();
 
   constructor(private absService:AbsService,@Inject(MAT_DIALOG_DATA) public data:any,private matDialogRef:MatDialogRef<AbsDetailsComponent> ) { }
 
   ngOnInit(): void {
-    console.log("data in popup",this.data);
+    console.log("id in popup",this.data);
     this.absService.getAbsById(this.data).subscribe((item)=> {
-      this.absDetil=item;
+      this.abs=item;
       console.log("one item by id",item);
     })
   }
