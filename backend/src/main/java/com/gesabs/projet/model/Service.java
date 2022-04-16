@@ -30,6 +30,7 @@ public class Service {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int id;
 	    private String intitulService;
+
 	    @OneToMany(mappedBy="service")
 		private List<Tache> taches;
 

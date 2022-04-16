@@ -37,6 +37,10 @@ export class AbsComponent implements OnInit {
     goToAdd(){
       this.router.navigate(["add-abs"]);
     }
+    updateAbs(id: number){
+      this.router.navigate(['update-abs', id]);
+    }
+  
   
 }
 

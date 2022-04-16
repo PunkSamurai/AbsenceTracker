@@ -28,7 +28,7 @@ public class CollabService {
    
    //get by id
    public Collaborateur getCollab(String matr) {
-       return collabRepository.findById(matr).orElseThrow();
+       return collabRepository.getById(matr);
    }
    
    //Update

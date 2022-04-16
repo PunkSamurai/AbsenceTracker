@@ -25,7 +25,7 @@
             <td> {{ abs.motif }} </td>
 
             <td>
-                <button  class = "btn btn-info"> Update Abs</button>
+                <button   (click)="updateAbs(abs.collab_tache_id!)" class = "btn btn-info"> Update Abs</button>
                 <button  (click)="viewDetails(abs.collab_tache_id!)" style="margin-left: 10px" class = "btn btn-primary">Details</button>
                 <button  class = "btn btn-warning"  style="margin-left: 10px"> Delete Abs</button>
     

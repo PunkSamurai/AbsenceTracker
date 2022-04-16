@@ -30,8 +30,10 @@ public class Tache {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String intitulTache;
+
     @ManyToOne
     private Service service;
+
 	@OneToMany(mappedBy = "tache")
 	private List<Absence> absences;
 	 

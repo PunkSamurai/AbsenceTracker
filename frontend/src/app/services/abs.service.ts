@@ -17,8 +17,8 @@ export class AbsService {
   getAbs(): Observable<Abs[]> {
     return this.http.get<Abs[]>(this.apiUrl)
   }
-  getAbsById(id : number): Observable<Abs[]>{
-    return this.http.get<Abs[]>(`${this.apiUrl}/${id}`);
+  getAbsById(id : number): Observable<Abs>{
+    return this.http.get<Abs>(`${this.apiUrl}/${id}`);
    }
    addAbs(abs: Abs,idc:string,idt:number): Observable<Abs>{
     return this.http.post<Abs>(`${this.apiUrl}/${idc}/${idt}`,abs,httpOptions)

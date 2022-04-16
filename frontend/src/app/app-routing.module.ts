@@ -8,6 +8,7 @@ import { AddTacheComponent } from './components/add-tache/add-tache.component';
 import { CollabsComponent } from './components/collabs/collabs.component';
 
 import { ServicesComponent } from './components/services/services.component';
+import { UpdateAbsComponent } from './components/update-abs/update-abs.component';
 import { UpdateCollabComponent } from './components/update-collab/update-collab.component';
 import { UpdateTacheComponent } from './components/update-tache/update-tache.component';
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'update-tache/:idS/:idStache', component: UpdateTacheComponent},
   {path: 'abs', component: AbsComponent},
   {path: 'add-abs', component: AddAbsComponent},
+  {path: 'update-abs/:id', component: UpdateAbsComponent},
 
  /* {path: 'employee-details/:id', component: EmployeeDetailsComponent}*/
 ];

@@ -13,8 +13,8 @@ import { Tache } from "./Taches";
         intitulTache?: string;
         tache_id?:number;
         collab_matr?:string;
-        collaborateur?:Collab[];
-        tache?:Tache[];
+        collaborateur?:Collab;
+        tache?:Tache;
     }
 
 

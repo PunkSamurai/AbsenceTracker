@@ -1,16 +1,9 @@
-<p>abs-details works!</p>
-<div *ngFor = "let abs of absDetil">
-    <strong> {{ abs.nom }} {{abs.prenom}} </strong>
-    <strong> {{ abs.intitulService }} </strong>
-    <strong> {{ abs.intitulTache }} </strong>
-    <strong> {{ abs.date }} </strong>
-    <strong> {{ abs.motif }} </strong>
-    <strong> {{ abs.date }} </strong>
-    <strong> {{ abs.motif }} </strong>
-    <strong> {{ abs.date }} </strong>
-    <strong> {{ abs.heureFin }} </strong>
-
-
+<div>  
+    <strong> Collaboreateur : </strong> {{ abs.collaborateur!.nom }} {{abs.collaborateur!.prenom}}  <br>
+    <strong> Date :</strong>  {{ abs.date }} <br>
+    <strong> Motif :</strong>  {{ abs.motif }} <br>
+    <strong> Heure Fin :</strong>  {{ abs.heureFin }} <br>
+    <strong> Heure Debut :</strong>  {{ abs.heureDebut }} <br>
 
 <br>
 <button (click)="onClose()" class="btn btn-primary">Close</button>
