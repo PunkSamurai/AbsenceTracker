@@ -1,21 +1,25 @@
 package com.gesabs.projet.services;
 
+import com.gesabs.projet.CollabInfo;
 import com.gesabs.projet.model.Collaborateur;
 import com.gesabs.projet.repository.CollabRepository;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @Service
 public class CollabService {
     @Autowired
     private CollabRepository collabRepository;
     
     //get all
-    public List<Collaborateur> getCollabs() {
-        return collabRepository.findAll();
+    public List<CollabInfo> getCollabs() {
+        return collabRepository.findAllCollabs();
     }
+
     
     //save
    public Collaborateur addCollab(Collaborateur c) {
@@ -43,5 +47,6 @@ public class CollabService {
        collabRepository.deleteById(matr);
        return "product removed !! " + matr;
    }
+
 }
 

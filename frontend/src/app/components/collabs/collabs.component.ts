@@ -6,10 +6,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-collabs',
   templateUrl: './collabs.component.html',
-  styleUrls: ['./collabs.component.css']
+  styleUrls: ['./collabs.component.css',
+  
+]
 })
 export class CollabsComponent implements OnInit {
   Success : boolean = false;
+  success!:string;
+  state:string="";
+  type:string="";
    collabs?: Collab[];
   constructor(private collabService : CollabsService,private router :Router) {
     this.collabService.getCollabs().subscribe(items =>{
@@ -25,6 +30,11 @@ export class CollabsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getCollabs();
+    this.success=this.collabService.getSuccess();
+    this.state=this.collabService.getState();
+    this.type=this.collabService.getType();
+    console.log("state"+this.state+" type"+this.type);
+
   }
   goToAdd(){
     this.router.navigate(["add-collab"]);
@@ -37,8 +47,15 @@ export class CollabsComponent implements OnInit {
   deleteCollab(matr: string){
     this.collabService.deleteCollab(matr).subscribe((data)=> {
       console.log(data);
+      this.collabService.setSuccess("Collab deleted succesfully ");
+      this.collabService.setStateType("","danger");
       this.ngOnInit();
     })
+  }
+
+  hide(){
+    this.state="fade";
+    this.success="";
   }
   
 }

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AbsComponent } from './components/abs/abs.component';
+import { AddAbsComponent } from './components/add-abs/add-abs.component';
 import { AddCollabComponent } from './components/add-collab/add-collab.component';
 import { AddTacheToServiceComponent } from './components/add-tache-to-service/add-tache-to-service.component';
 import { AddTacheComponent } from './components/add-tache/add-tache.component';
@@ -18,7 +20,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'collabs', pathMatch: 'full'},
   {path: 'update-collab/:id', component: UpdateCollabComponent},
   {path: 'update-tache/:idS/:idStache', component: UpdateTacheComponent},
- 
+  {path: 'abs', component: AbsComponent},
+  {path: 'add-abs', component: AddAbsComponent},
  /* {path: 'employee-details/:id', component: EmployeeDetailsComponent}*/
 ];
 

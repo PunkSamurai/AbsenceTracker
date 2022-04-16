@@ -1,0 +1,39 @@
+
+<h2> Absences List</h2>
+<div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-primary" (click)="goToAdd()" style="margin-left: 1180px">Add Abs</button>
+   
+</div>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Collaborateur</th>
+            <th>Service </th>
+            <th>Tache</th>
+            <th>Date</th>
+            <th>Motif</th>
+            <th>Actions</th>
+            
+        </tr>
+    </thead>
+            <tbody>
+          <tr *ngFor = "let abs of Absens">
+            <td> {{ abs.nom }} {{abs.prenom}} </td>
+            <td> {{ abs.intitulService }} </td>
+            <td> {{ abs.intitulTache }} </td>
+            <td> {{ abs.date }} </td>
+            <td> {{ abs.motif }} </td>
+
+            <td>
+                <button  class = "btn btn-info"> Update Abs</button>
+                <button  (click)="viewDetails(abs.collab_tache_id!)" style="margin-left: 10px" class = "btn btn-primary">Details</button>
+                <button  class = "btn btn-warning"  style="margin-left: 10px"> Delete Abs</button>
+    
+
+              
+                
+            </td>
+        </tr>
+
+    </tbody>
+</table>

@@ -14,7 +14,9 @@ export class TacheService {
   private apiUrl = "http://localhost:8080/api/taches";
   constructor(private http: HttpClient) { }
  
-  
+  getTaches(): Observable<Tache[]> {
+    return this.http.get<Tache[]>(this.apiUrl)
+  }
  
   getTacheById(id : number): Observable<Tache>{
     return this.http.get<Tache>(`${this.apiUrl}/${id}`);

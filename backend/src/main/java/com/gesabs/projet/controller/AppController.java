@@ -1,5 +1,10 @@
 package com.gesabs.projet.controller;
 
+import com.gesabs.projet.AbsenceInfo;
+import com.gesabs.projet.CollabInfo;
+import com.gesabs.projet.TacheInfo;
+import com.gesabs.projet.model.Absence;
+import com.gesabs.projet.services.AbsenceService;
 import org.springframework.web.bind.annotation.*;
 import com.gesabs.projet.model.Collaborateur;
 import com.gesabs.projet.model.Service;
@@ -18,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,16 +36,22 @@ public class AppController {
 	
     @Autowired
     private CollabService collabService;
+
     @Autowired
     private ServiceService serviceService;
+
     @Autowired
     private TacheService tacheService;
+
+    @Autowired
+    private AbsenceService absenceService;
+
     
     //------------------------------------Collabs------------------------------------
     
     //get all collabs
     @GetMapping("/collabs")
-    public List<Collaborateur> finAllCollabs() {
+    public List<CollabInfo> finAllCollabs() {
         return collabService.getCollabs();
     }
     
@@ -116,12 +128,14 @@ public class AppController {
 //        return collabService.addCollabs();
 //    }
 
+
     //-----------------------------------------Tache-----------------------------------
+
 
     
     //get all taches
     @GetMapping("/taches")
-    public List<Tache> finAllTaches() {
+    public List<TacheInfo> finAllTaches() {
         return tacheService.getTaches();
     }
     //get tache by id
@@ -159,6 +173,41 @@ public class AppController {
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
-    
-   
+
+
+    //-----------------------------------------Absence-----------------------------------
+
+    //get all Absences
+    @GetMapping("/abs")
+    public List<AbsenceInfo> finAllAbsences() {
+        return absenceService.getAbsences();
+    }
+    //Add Absence
+    //ad collab and tache to abs
+    @PostMapping("/abs/{idc}/{idt}")
+    public Absence addAbs(@RequestBody Absence Absence,@PathVariable String idc,@PathVariable String idt) {
+
+        return  absenceService.addAbsence(Absence,idc,idt);
+    }
+
+    //Update Absence
+    @PutMapping("/abs/{collab_tache_id}")
+    public Absence updateAbs(@PathVariable int collab_tache_id,@RequestBody Absence Absence) {
+        return absenceService.updateAbs(Absence,collab_tache_id);
+    }
+    //Delete Absence
+    @DeleteMapping("/abs/{collab_tache_id}")
+    public ResponseEntity<Map<String, Boolean>> deleteAbs(@PathVariable int collab_tache_id){
+        absenceService.deleteAbs(collab_tache_id);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
+    }
+    //Get Absence by id
+    @GetMapping("/abs/{collab_tache_id}")
+    public List<AbsenceInfo> getAbs(@PathVariable int collab_tache_id) {
+        return absenceService.getAbs(collab_tache_id);
+    }
+
+
 }
