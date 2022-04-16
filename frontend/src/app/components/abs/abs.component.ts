@@ -40,6 +40,7 @@ export class AbsComponent implements OnInit {
     updateAbs(id: number){
       this.router.navigate(['update-abs', id]);
     }
+<<<<<<< HEAD
 
     deleteAbs(id: number){
       this.absService.deleteAbs(id).subscribe((data)=> {
@@ -48,6 +49,10 @@ export class AbsComponent implements OnInit {
       })
     }
 
+=======
+  
+  
+>>>>>>> 5a85f8ccf60281168384e3419c71bc404ddbc7cc
 }
 
 /*
