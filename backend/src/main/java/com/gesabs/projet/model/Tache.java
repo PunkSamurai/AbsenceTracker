@@ -29,9 +29,12 @@ public class Tache {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private String intitulTache;
+
     @ManyToOne
     private Service service;
+
 	@OneToMany(mappedBy = "tache")
 	private List<Absence> absences;
 	 

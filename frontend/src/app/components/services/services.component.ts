@@ -34,8 +34,6 @@ export class ServicesComponent implements OnInit {
     }) 
   }
 
-
- 
   ngOnInit(): void {
     this.getService();
     this.success=this.serviceService.getSuccess();

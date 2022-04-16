@@ -33,15 +33,21 @@ public class Absence {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "collab_tache_id")
 	private int id;
-	@ManyToOne(cascade = CascadeType.ALL)
+
+	@ManyToOne
 	@JoinColumn(name = "Collab_matr")
 	private Collaborateur collaborateur;
-	@ManyToOne(cascade = CascadeType.ALL)
+
+	@ManyToOne
 	@JoinColumn(name = "tache_id")
 	private Tache tache;
+
 	private Date date;
+	@Column(nullable = false)
 	private String heureDebut;
+	@Column(nullable = false)
 	private String heureFin;
+	@Column(nullable = false)
 	private String motif;
 
 

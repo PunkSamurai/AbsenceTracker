@@ -29,7 +29,9 @@ public class Service {
 		@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int id;
+		@Column(nullable = false)
 	    private String intitulService;
+
 	    @OneToMany(mappedBy="service")
 		private List<Tache> taches;
 

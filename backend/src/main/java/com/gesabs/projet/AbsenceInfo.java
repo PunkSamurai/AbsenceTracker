@@ -10,7 +10,7 @@ public interface AbsenceInfo {
     String getIntitulTache();
     Date getDate();
     String getHeurDebut();
-    String getHeurFin();
+    String getHeurfin();
     String getMotif();
     String getIntitulService();
 

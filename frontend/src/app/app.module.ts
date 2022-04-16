@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AbsComponent } from './components/abs/abs.component';
 import { AddAbsComponent } from './components/add-abs/add-abs.component';
+import { UpdateAbsComponent } from './components/update-abs/update-abs.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { AddAbsComponent } from './components/add-abs/add-abs.component';
     AddTacheToServiceComponent,
     AbsComponent,
     AbsDetailsComponent,
-    AddAbsComponent
+    AddAbsComponent,
+    UpdateAbsComponent
     
     
   ],

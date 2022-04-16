@@ -29,8 +29,11 @@ import javax.persistence.OneToMany;
     @Id
     @Column(length = 64)
     private String matr;
+    @Column(nullable = false)
     private String nom;
+    @Column(nullable = false)
     private String prenom;
+
 	@OneToMany(mappedBy = "collaborateur")
 	private List<Absence> absences;
 	

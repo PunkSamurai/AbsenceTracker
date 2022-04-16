@@ -1,0 +1,29 @@
+<div class="col-md-6 offset-md-3">
+    <h3> update abs </h3>
+
+    <form (ngSubmit)="onSubmit()">
+
+
+        <div class="form-group">
+            <label>Absence Motif</label>
+            <input type="text" class="form-control" id="motif" [(ngModel)]="abs.motif" name="motif">
+        </div>
+        <div class="form-group">
+            <label>Absence Date</label>
+            <input type="date" class="form-control" id="date" [(ngModel)]="abs.date" name="date">
+        </div>
+        <div class="form-group">
+            <label>Heure Debut</label>
+            <input type="text" class="form-control" id="heureDebut" [(ngModel)]="abs.heureDebut" name="heureDebut">
+        </div>
+        <div class="form-group">
+            <label>Heure Fin</label>
+            <input type="text" class="form-control" id="heureFin" [(ngModel)]="abs.heureFin" name="heureFin">
+        </div>
+
+
+
+        <button class="btn btn-success" type="submit">Submit</button>
+
+    </form>
+</div>

@@ -15,11 +15,16 @@ import { Router } from '@angular/router';
 export class AbsComponent implements OnInit {
   Absens?: Abs[];
   Abs?: Abs;
-
+  success!:string;
+  state:string="";
+  type:string="";
   constructor(private router : Router,private matDialog: MatDialog,private absService: AbsService) {   this.getAbs();}
 
   ngOnInit(): void {
     this.getAbs();
+    this.success=this.absService.getSuccess();
+    this.state=this.absService.getState();
+    this.type=this.absService.getType();
   }
   private getAbs(){
     this.absService.getAbs().subscribe(items =>{
@@ -27,7 +32,6 @@ export class AbsComponent implements OnInit {
         this.Absens=items;
         console.log("Abss",items);
       });
-    
   }
   viewDetails(id : number){
     this.matDialog.open(AbsDetailsComponent,
@@ -37,7 +41,24 @@ export class AbsComponent implements OnInit {
     goToAdd(){
       this.router.navigate(["add-abs"]);
     }
-  
+
+    updateAbs(id: number){
+      this.router.navigate(['update-abs', id]);
+    }
+
+    deleteAbs(id: number){
+      this.absService.deleteAbs(id).subscribe((data)=> {
+        console.log(data);
+        this.absService.setSuccess("Absence deleted succesfully ");
+        this.absService.setStateType("","danger");
+        this.ngOnInit();
+      })
+    }
+    hide(){
+      this.state="fade";
+      this.success="";
+    }
+
 }
 
 /*
