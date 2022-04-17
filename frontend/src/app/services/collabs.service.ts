@@ -10,6 +10,29 @@ import { Collab } from '../Collabs';
 export class CollabsService {
   private apiUrl = "http://localhost:8080/api/collabs";
   constructor(private http: HttpClient) { }
+  success:string='';
+  state:string='fade';
+  type:string='success';
+
+  setSuccess(data:string){
+        this.success=data;
+        this.state="";
+  }
+
+  setStateType(state:string,type:string){
+        this.state=state;
+        this.type=type;
+  }
+  getType(){
+    return this.type;
+  }
+ 
+  getSuccess(){
+    return this.success;
+  }
+  getState(){
+    return this.state;
+  }
   
   getCollabs(): Observable<Collab[]> {
     return this.http.get<Collab[]>(this.apiUrl)

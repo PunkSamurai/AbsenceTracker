@@ -17,7 +17,9 @@ export class AddCollabComponent implements OnInit {
   }
   saveCollab() {
     this.collabService.addCollab(this.collab).subscribe(
-      (data) =>  console.log(data));
+      (data) => console.log(data));
+      this.collabService.setSuccess("Collab added succesfully ");
+      this.collabService.setStateType("","success");
       this.goToCollabList(); 
   }
 

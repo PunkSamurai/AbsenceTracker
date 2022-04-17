@@ -53,6 +53,8 @@ onSubmit(){
   this.tacheService.updateTache(this.idSelectedTache, this.tache).subscribe((data)=> console.log(data))
   this.serviceService.updateService(this.id, this.service).subscribe((data)=> console.log(data))
   console.log("request body",this.tache)
+  this.serviceService.setSuccess("Task and Service updated succesfully ");
+  this.serviceService.setStateType("","warning");
   this.goToServiceList();
   }
 }

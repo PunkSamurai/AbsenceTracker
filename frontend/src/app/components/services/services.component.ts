@@ -15,6 +15,9 @@ export class ServicesComponent implements OnInit {
   
   services?: Service[];
   selectedOption:string="Voir les taches";
+  success!:string;
+  state:string="";
+  type:string="";
   // tacheToAdd:string="Add tache";
   
   constructor(private serviceService : ServiceService,private tacheService : TacheService,private router :Router) {
@@ -33,6 +36,9 @@ export class ServicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getService();
+    this.success=this.serviceService.getSuccess();
+    this.state=this.serviceService.getState();
+    this.type=this.serviceService.getType();
   }
 
   goToAdd(){
@@ -53,6 +59,8 @@ export class ServicesComponent implements OnInit {
   deleteTache(){
     this.tacheService.deleteTache(this.selectedOption).subscribe((data)=> {
       console.log(data);
+      this.serviceService.setSuccess("Task deleted succesfully");
+      this.serviceService.setStateType("","danger");
       this.ngOnInit();
     })
   }
@@ -60,11 +68,16 @@ export class ServicesComponent implements OnInit {
   deleteService(id:any){
     this.serviceService.deleteService(id).subscribe((data)=> {
       console.log(data);
+      this.serviceService.setSuccess("Service deleted succesfully ");
+      this.serviceService.setStateType("","danger");
       this.ngOnInit();
     })
-
+    
   }
   
-
+  hide(){
+    this.state="fade";
+    this.success="";
+  }
 
   }

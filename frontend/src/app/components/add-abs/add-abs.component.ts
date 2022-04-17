@@ -38,6 +38,8 @@ export class AddAbsComponent implements OnInit {
   saveAbs() {
     this.absService.addAbs(this.abs,this.abs.collab_matr!,this.abs.tache_id!).subscribe(
       (data) =>  console.log(data));
+      this.absService.setSuccess("Absence added succesfully ");
+      this.absService.setStateType("","success");
       this.goToAbsList(); 
   }
 
@@ -54,6 +56,6 @@ goToAbsList(){
   this.router.navigate(['/abs']);
 
 }
- 
+
 
 }

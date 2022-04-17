@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ServiceService } from 'src/app/services/service.service';
 import { TacheService } from 'src/app/services/tache.service';
 import { Tache } from 'src/app/Taches';
 
@@ -14,7 +15,7 @@ export class AddTacheToServiceComponent implements OnInit {
   tache:Tache=new Tache();
   id!:number;
 
-  constructor(private tacheService:TacheService,private router :Router,private route :ActivatedRoute) { }
+  constructor(private tacheService:TacheService,private serviceService:ServiceService,private router :Router,private route :ActivatedRoute) { }
 
   goToServiceList(){
     this.router.navigate(['/services']);
@@ -23,6 +24,8 @@ export class AddTacheToServiceComponent implements OnInit {
   saveTache(id:any,tache:Tache) {
     this.tacheService.addTache(tache,id).subscribe(
       (data) =>  console.log(data));
+      this.serviceService.setSuccess("Task added succesfully ");
+      this.serviceService.setStateType("","success");
       this.goToServiceList(); 
     }
 

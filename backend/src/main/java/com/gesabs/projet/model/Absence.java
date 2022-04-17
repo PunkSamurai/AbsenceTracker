@@ -34,7 +34,6 @@ public class Absence {
 	@Column(name = "collab_tache_id")
 	private int id;
 
-<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name = "Collab_matr")
 	private Collaborateur collaborateur;
@@ -42,17 +41,7 @@ public class Absence {
 	@ManyToOne
 	@JoinColumn(name = "tache_id")
 	private Tache tache;
-	@Column(nullable = false)
-=======
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "Collab_matr")
-	private Collaborateur collaborateur;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "tache_id")
-	private Tache tache;
-
->>>>>>> 5a85f8ccf60281168384e3419c71bc404ddbc7cc
 	private Date date;
 	@Column(nullable = false)
 	private String heureDebut;

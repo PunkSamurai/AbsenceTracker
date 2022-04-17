@@ -15,11 +15,16 @@ import { Router } from '@angular/router';
 export class AbsComponent implements OnInit {
   Absens?: Abs[];
   Abs?: Abs;
-
+  success!:string;
+  state:string="";
+  type:string="";
   constructor(private router : Router,private matDialog: MatDialog,private absService: AbsService) {   this.getAbs();}
 
   ngOnInit(): void {
     this.getAbs();
+    this.success=this.absService.getSuccess();
+    this.state=this.absService.getState();
+    this.type=this.absService.getType();
   }
   private getAbs(){
     this.absService.getAbs().subscribe(items =>{
@@ -27,7 +32,6 @@ export class AbsComponent implements OnInit {
         this.Absens=items;
         console.log("Abss",items);
       });
-
   }
   viewDetails(id : number){
     this.matDialog.open(AbsDetailsComponent,
@@ -37,38 +41,40 @@ export class AbsComponent implements OnInit {
     goToAdd(){
       this.router.navigate(["add-abs"]);
     }
+
     updateAbs(id: number){
       this.router.navigate(['update-abs', id]);
     }
-<<<<<<< HEAD
 
     deleteAbs(id: number){
       this.absService.deleteAbs(id).subscribe((data)=> {
         console.log(data);
+        this.absService.setSuccess("Absence deleted succesfully ");
+        this.absService.setStateType("","danger");
         this.ngOnInit();
       })
     }
+    hide(){
+      this.state="fade";
+      this.success="";
+    }
 
-=======
-  
-  
->>>>>>> 5a85f8ccf60281168384e3419c71bc404ddbc7cc
 }
 
 /*
 
 function arrayToJSONObject (k: any){
-
+  
 //array.
 var keyd = ["collab_nom", "collab_prenom", "tache", "date","h_debut","h_fin","motif"]
 
 k.unshift(keyd)
 
     var keys = k[0];
-
+ 
     //vacate keys from main array
     var newArr = k.slice(1, k.length);
-
+ 
     var formatted = [],
     data = newArr,
     cols = keys,
@@ -82,7 +88,7 @@ k.unshift(keyd)
     }
     console.log("shlo",formatted);
 
-
+  
 }
 
 

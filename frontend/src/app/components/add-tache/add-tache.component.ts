@@ -25,6 +25,8 @@ export class AddTacheComponent implements OnInit {
   saveService() {
     this.serviceService.addService(this.service).subscribe(
       (data) =>  this.saveTache(data.id));
+      this.serviceService.setSuccess("task and Service added succesfully ");
+      this.serviceService.setStateType("","success");
       this.goToServiceList(); 
     }
 
