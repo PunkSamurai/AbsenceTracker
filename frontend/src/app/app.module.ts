@@ -4,6 +4,18 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatDialogModule} from '@angular/material/dialog'
 import { AppRoutingModule } from './app-routing.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 import { AppComponent } from './app.component';
 import { AddCollabComponent } from './components/add-collab/add-collab.component';
 import { CollabsComponent } from './components/collabs/collabs.component';
@@ -19,7 +31,8 @@ import { CommonModule } from '@angular/common';
 import { AbsComponent } from './components/abs/abs.component';
 import { AddAbsComponent } from './components/add-abs/add-abs.component';
 import { UpdateAbsComponent } from './components/update-abs/update-abs.component';
-
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +47,9 @@ import { UpdateAbsComponent } from './components/update-abs/update-abs.component
     AbsComponent,
     AbsDetailsComponent,
     AddAbsComponent,
-    UpdateAbsComponent
+    UpdateAbsComponent,
+    SidebarComponent,
+    NavbarComponent
     
     
   ],
@@ -47,6 +62,16 @@ import { UpdateAbsComponent } from './components/update-abs/update-abs.component
     BrowserAnimationsModule,
     CommonModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,55 +1,106 @@
 <!-- <i class="fa fa-refresh" aria-hidden="true"></i> -->
 
-<h1 class="text-center mt-3"> Services List</h1>
+
 <div class="alert alert-{{type}} alert-dismissible {{state}}" role="alert" >
     <!-- {{success}}  -->{{success}}
      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="hide()">
        <span aria-hidden="true">&times;</span>
      </button>
    </div>
-<div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-primary" style="margin-left: 1000px" (click)="goToAdd()">Add Service</button>
-</div>
-<table class = "table table-striped mt-2">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Intitule </th>
-            <th>taches</th>
-            <th>Actions</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let service of services" >
-            <td> {{ service.id }} </td>
-            <td> {{ service.intitulService }} </td>
-            <td >
-                <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption">
-                    <option selected >Voir les taches</option>
-                    <option *ngFor = "let tache of service.taches" value="{{tache.id}}"> {{tache.intitulTache}}</option>
-                    <!-- <option > -->
-                        <!-- <div class="form-group">
-                            <label>add tache</label> -->
-                            <!-- <input type="text" class ="form-control" id = "tacheToAdd"
-                           name = "tacheToAdd" placeholder="add tache"> -->
-                        <!-- </div> -->
+
+                
+
+
+
+
+
+
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item active">Services</li>
+        </ol>
+    </nav>
+    
+    <div class="d-flex justify-content-center">
+        <h2> Services List</h2>
+    </div>
+        <div class="alert alert-{{type}} alert-dismissible {{state}}" role="alert" >
+            <!-- {{success}}  -->{{success}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+    <mat-form-field >
+      <mat-label>Recherche:</mat-label>
+      <input type="search" matInput name="key" id="searchName" ngModel name="key" #key="ngModel" (ngModelChange)="searchEmployees(key.value)"/>
+      </mat-form-field>
+    <button (click)="searchEmployees(key.value)"  mat-mini-fab color="primary"><mat-icon>search</mat-icon></button>
+    <a [routerLink]="['../add-collab']" mat-mini-fab color="accent"><mat-icon>add</mat-icon></a>
+    
+    <div *ngIf="services.length > 0">
+      
+    
+        <table mat-table #table [dataSource]="services">
+          <ng-container matColumnDef="ID">
+            <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.id}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Service">
+            <mat-header-cell *matHeaderCellDef> Service </mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.intitulService}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Tache">
+              <mat-header-cell *matHeaderCellDef> Taches </mat-header-cell>
+              <mat-cell *matCellDef="let item">               
+                  <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedOption">
+                      <option selected >Voir les taches</option>
+                      <option *ngFor = "let tache of item.taches" value="{{tache.id}}"> {{tache.intitulTache}}</option>
+                      <!-- <option > -->
+                          <!-- <div class="form-group">
+                        <label>add tache</label> -->
+                        <!-- <input type="text" class ="form-control" id = "tacheToAdd"
+                       name = "tacheToAdd" placeholder="add tache"> -->
+                    <!-- </div> -->
                     <!-- </option> -->
-                  </select>
+                </select>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="ActionsTache">
+            <mat-header-cell *matHeaderCellDef> Actions Tache  </mat-header-cell>
+            <mat-cell *matCellDef="let item">
+        
+
+              <button (click)="updateTache(item.id)" class = "btn btn-info"> Update Task</button>
                 
-                
-                 </td>
-            <td>
-                <button (click)="updateTache(service.id)" class = "btn btn-info"> Update Task</button>
-                
-                <button (click)="deleteTache()" class = "btn btn-warning"  style="margin-left: 10px"> Delete Task</button>
-                
-                <button  class = "btn btn-success" (click)="addTacheToService(service.id)" style="margin-left: 10px"> Add Task to Service </button>
+              <button (click)="deleteTache()" class = "btn btn-warning"  style="margin-left: 10px"> Delete Task</button>
+              
+            
+              
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Actions Service </mat-header-cell>
+            <mat-cell *matCellDef="let item">
+        
+              
+              <button  class = "btn btn-success" (click)="addTacheToService(item.id)" style="margin-left: 10px"> Add Task to Service </button>
 
 
-                <button  class = "btn btn-danger" (click)="deleteService(service.id)" style="margin-left: 10px"> Delete Service </button>
-                
-            </td>
-        </tr>
-    </tbody>
-</table>
+              <button  class = "btn btn-danger" (click)="deleteService(item.id)" style="margin-left: 10px"> Delete Service </button>
+              
+            </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+        
+        
+        
+        
+      </table>
+    </div>
+    

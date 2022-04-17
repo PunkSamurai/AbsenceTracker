@@ -11,11 +11,12 @@ import { Router } from '@angular/router';
 ]
 })
 export class CollabsComponent implements OnInit {
+  displayedColumns = ['id', 'nom', 'prenom','actions'];
   Success : boolean = false;
   success!:string;
   state:string="";
   type:string="";
-   collabs?: Collab[];
+   collabs!: Collab[];
   constructor(private collabService : CollabsService,private router :Router) {
     this.collabService.getCollabs().subscribe(items =>{
       console.log("iteeems",items);
@@ -57,5 +58,20 @@ export class CollabsComponent implements OnInit {
     this.state="fade";
     this.success="";
   }
+  public searchEmployees (key: string): void {
+    console.log(key);
+      const results: Collab[] = [];
+      for (const collab of this.collabs) {
+        if (collab.matr!.toLowerCase().indexOf(key.toLowerCase()) !== -1
+       || collab.prenom!.toLowerCase().indexOf(key.toLowerCase ()) !== -1
+       || collab.nom!.toLowerCase().indexOf(key.toLowerCase ()) !== -1) {
+          results.push(collab);
+      }
+    }
+    this.collabs = results;
+    if (results.length === 0 || !key) {
+      this.getCollabs();
+    }
+}
   
 }

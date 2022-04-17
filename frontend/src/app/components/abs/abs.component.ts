@@ -13,8 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./abs.component.css']
 })
 export class AbsComponent implements OnInit {
-  Absens?: Abs[];
-  Abs?: Abs;
+
+  
+  displayedColumns = ['Collaborateur', 'Service', 'Tache','Date','Motif','viewDetails','actions'];
+  Absens!: Abs[];
+ // Abs!: Abs;
   success!:string;
   state:string="";
   type:string="";
@@ -59,37 +62,23 @@ export class AbsComponent implements OnInit {
       this.success="";
     }
 
-}
-
-/*
-
-function arrayToJSONObject (k: any){
-  
-//array.
-var keyd = ["collab_nom", "collab_prenom", "tache", "date","h_debut","h_fin","motif"]
-
-k.unshift(keyd)
-
-    var keys = k[0];
- 
-    //vacate keys from main array
-    var newArr = k.slice(1, k.length);
- 
-    var formatted = [],
-    data = newArr,
-    cols = keys,
-    l = cols.length;
-    for (var i=0; i<data.length; i++) {
-            var d = data[i],
-                    o = {} as any;
-            for (var j=0; j<l; j++)
-                    o[cols[j]] = d[j];
-            formatted.push(o);
-    }
-    console.log("shlo",formatted);
-
-  
+    public searchEmployees (key: string): void {
+      console.log(key);
+        const results: Abs[] = [];
+        for (const Absens of this.Absens) {
+          if (Absens.nom!.toLowerCase().indexOf(key.toLowerCase()) !== -1
+         || Absens.intitulService!.toLowerCase().indexOf(key.toLowerCase ()) !== -1
+         || Absens.intitulTache!.toLowerCase().indexOf(key.toLowerCase ()) !== -1
+         || Absens.date!.toLowerCase().indexOf(key.toLowerCase ()) !== -1
+         || Absens.motif!.toLowerCase().indexOf(key.toLowerCase ()) !== -1) {
+            results.push(Absens);
+        }
+      }
+      this.Absens = results;
+      if (results.length === 0 || !key) {
+        this.getAbs();
+      }
+  }
 }
 
 
-*/

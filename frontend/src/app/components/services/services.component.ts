@@ -11,9 +11,9 @@ import { Tache } from 'src/app/Taches';
   styleUrls: ['./services.component.css']
 })
 export class ServicesComponent implements OnInit {
-
+  displayedColumns = ['ID', 'Service', 'Tache','ActionsTache','actions'];
   
-  services?: Service[];
+  services!: Service[];
   selectedOption:string="Voir les taches";
   success!:string;
   state:string="";
@@ -80,4 +80,18 @@ export class ServicesComponent implements OnInit {
     this.success="";
   }
 
+  public searchEmployees (key: string): void {
+    console.log(key);
+      const results: Service[] = [];
+      for (const ser of this.services) {
+        if (ser.intitulService!.toLowerCase().indexOf(key.toLowerCase()) !== -1
+       ) {
+          results.push(ser);
+      }
+    }
+    this.services = results;
+    if (results.length === 0 || !key) {
+      this.getService();
+    }
+}
   }
