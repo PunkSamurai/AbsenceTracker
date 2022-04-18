@@ -6,7 +6,7 @@
 </nav>
 
 <div class="d-flex justify-content-center">
-    <h2> Absences List</h2>
+    <div class="mat-display-1 mt-3 text-center" style="margin-bottom:-5px;"> Liste Absences</div>
 </div>
     <div class="alert alert-{{type}} alert-dismissible {{state}}" role="alert" >
         <!-- {{success}}  -->{{success}}
@@ -16,10 +16,11 @@
 </div>
 <mat-form-field >
   <mat-label>Recherche:</mat-label>
-  <input type="search" matInput name="key" id="searchName" ngModel name="key" #key="ngModel" (ngModelChange)="searchEmployees(key.value)"/>
+  <input type="search" matInput name="key" id="searchName" ngModel name="key" #key="ngModel" (ngModelChange)="search(key.value)"/>
   </mat-form-field>
-<button (click)="searchEmployees(key.value)"  mat-mini-fab color="primary"><mat-icon>search</mat-icon></button>
-<a [routerLink]="['../add-abs']" mat-mini-fab color="accent"><mat-icon>add</mat-icon></a>
+<button (click)="search(key.value)"  mat-mini-fab color="primary"><mat-icon>search</mat-icon></button>
+<a [routerLink]="['../add-abs']" mat-mini-fab color="accent"><mat-icon>add</mat-icon></a>	
+<button (click)="refresh()"  mat-mini-fab color="primary" style="margin-left: 900px;"><mat-icon>refresh</mat-icon></button>
 
 <div *ngIf="Absens.length > 0">
   
@@ -55,7 +56,7 @@
             <button (click)="deleteCollab(item.matr!)" mat-button color="warn"><mat-icon>delete</mat-icon></button>-->
   
   
-            <a (click)="updateAbs(item.collab_tache_id!)"  mat-raised-button color="primary" >Edit</a>&nbsp;
+            <a (click)="updateAbs(item.collab_tache_id!)"  mat-raised-button color="primary" style="color:aliceblue;" >Edit</a>&nbsp;
             <button (click)="deleteAbs(item.collab_tache_id!)"  mat-button color="warn" ><mat-icon>delete</mat-icon></button>
 
  

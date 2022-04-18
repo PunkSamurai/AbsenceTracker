@@ -73,5 +73,8 @@ export class CollabsComponent implements OnInit {
       this.getCollabs();
     }
 }
-  
+refresh()
+{
+this.ngOnInit();
+}
 }

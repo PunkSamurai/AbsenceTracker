@@ -62,7 +62,7 @@ export class AbsComponent implements OnInit {
       this.success="";
     }
 
-    public searchEmployees (key: string): void {
+    public search (key: string): void {
       console.log(key);
         const results: Abs[] = [];
         for (const Absens of this.Absens) {
@@ -79,6 +79,11 @@ export class AbsComponent implements OnInit {
         this.getAbs();
       }
   }
+
+refresh()
+{
+this.ngOnInit();
+}
 }
 
 

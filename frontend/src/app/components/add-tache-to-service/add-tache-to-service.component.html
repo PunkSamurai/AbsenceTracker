@@ -1,20 +1,24 @@
-<div class="col-md-6 offset-md-3">
-    <h3>Add tache to Service </h3>
-    <form  (ngSubmit) = "onSubmit()">
+<div class="col-md-12">
+    <div class="mat-display-1 mt-3 text-center">Ajouter tache </div>
+    <form  [formGroup]="registerForm"  (ngSubmit) = "onSubmit()">
         <div class="form-group">
             <label> Tache identifiant</label>
             <input type="text" class ="form-control" id = "service.intitulService"
-                [(ngModel)] = "tache.id" name = "service.intitulService" >
+                [(ngModel)] = "tache.id" name = "service.intitulService"  placeholder="Saisir identifiant tache" formControlName="idtask">
+                <small *ngIf="registerForm.get('idtask')!.invalid" class="text-danger" style="margin-left:2px;">*identifiant  required</small>
+
         </div>
     
         <div class="form-group">
             <label> Tache Intitule</label>
             <input type="text" class ="form-control" id = "intitulTache"
-                [(ngModel)] = "tache.intitulTache" name = "intitulTache">
+                [(ngModel)] = "tache.intitulTache" name = "intitulTache" placeholder="Saisir intitule tache" formControlName="task">
+                <small *ngIf="registerForm.get('task')!.invalid" class="text-danger" style="margin-left:2px;">*intitule required</small>
+
         </div>
 
     
-        <button class = "btn btn-success" type ="submit">Update</button>
+        <button [disabled]="registerForm.invalid" class = "btn btn-success mt-2" type ="submit">Ajouter</button>
     
     </form>
     </div> 

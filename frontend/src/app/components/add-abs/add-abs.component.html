@@ -1,53 +1,56 @@
-<div class="col-md-6 offset-md-3">
-    <h3> Add abs </h3>
+<div class="col-md-12">
+    <div class="mat-display-1 mt-3 text-center" style="margin-bottom:-10px;"> Ajouter absence </div>
 
-    <form (ngSubmit) = "onSubmit()">
+    <form [formGroup]="registerForm" (ngSubmit) = "onSubmit()" class="test">
+ 
         <div class="form-group">
-            <label>Absence ID</label>
-            <input type="text" class ="form-control" id = "collab_tache_id"
-                [(ngModel)] = "abs.collab_tache_id" name = "collab_tache_id">
-        </div>
-        <div class="form-group"></div>
         <label>Select Collab : </label>
-        <select name="status" class="form-select" aria-label="Default select example" [(ngModel)]="abs.collab_matr">
-                    <option selected >Voir les Colab</option>
+        <select name="status" class="form-select" aria-label="Default select example" [(ngModel)]="abs.collab_matr" formControlName="collab">
+                    <option>voir les collaborateurs</option>
                     <option *ngFor = "let collab of collabs" value="{{collab.matr}}"> {{collab.nom}}</option>
     
                   </select>
-                  
+                  <small *ngIf="registerForm.get('collab')!.invalid" class="text-danger" style="margin-left:2px;">*collab required</small>
+         </div>
         <div class="form-group">
         <label>Select Tache : </label>
-        <select name="tacheSelect" class="form-select" aria-label="Default select example" [(ngModel)]="abs.tache_id">
-            <option selected >Voir les Taches</option>
+
+        <select name="status" class="form-select" aria-label="Default select example" [(ngModel)]="abs.tache_id" formControlName="tache">
+            <option selected>voir les taches</option>
             <option *ngFor = "let tache of taches" value="{{tache.id}}"> {{ tache.intitule_tache }} </option>
         </select>
+        <small *ngIf="registerForm.get('tache')!.invalid" class="text-danger" style="margin-left:2px;">*tache required</small>
 
 
         </div>
         <div class="form-group">
             <label>Absence Motif</label>
             <input type="text" class ="form-control" id = "motif"
-                [(ngModel)] = "abs.motif" name = "motif">
+                [(ngModel)] = "abs.motif" name = "motif" placeholder="Saisir le motif" formControlName="motif">
+                <small *ngIf="registerForm.get('motif')!.invalid" class="text-danger" style="margin-left:2px;">*Motif required</small>
         </div>
         <div class="form-group">
             <label>Absence Date</label>
             <input type="date" class ="form-control" id = "date"
-                [(ngModel)] = "abs.date" name = "date">
+                [(ngModel)] = "abs.date" name = "date" formControlName="date"> 
+                <small *ngIf="registerForm.get('date')!.invalid" class="text-danger" style="margin-left:2px;">*date required</small>
         </div>
         <div class="form-group">
             <label>Heure Debut</label>
             <input type="text" class ="form-control" id = "heureDebut"
-                [(ngModel)] = "abs.heureDebut" name = "heureDebut">
+                [(ngModel)] = "abs.heureDebut" name = "heureDebut" placeholder="Saisir heure debut" formControlName="debut">
+                <small *ngIf="registerForm.get('debut')!.invalid" class="text-danger" style="margin-left:2px;">*heure debut required</small>
         </div>
         <div class="form-group">
             <label>Heure Fin</label>
             <input type="text" class ="form-control" id = "heureFin"
-                [(ngModel)] = "abs.heureFin" name = "heureFin">
+                [(ngModel)] = "abs.heureFin" name = "heureFin" placeholder="Saisir heure fin" formControlName="fin">
+                <small *ngIf="registerForm.get('fin')!.invalid" class="text-danger" style="margin-left:2px;">*heure fin required</small>
         </div>
   
 
     
-        <button class = "btn btn-success" type ="submit">Submit</button>
+        <button class = "btn btn-success" type ="submit" style="margin-bottom:10px;" [disabled]="registerForm.invalid">Ajouter</button>
     
     </form>
     </div> 
