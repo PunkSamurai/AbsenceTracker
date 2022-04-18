@@ -12,7 +12,7 @@ import { Tache } from 'src/app/Taches';
 })
 export class ServicesComponent implements OnInit {
   displayedColumns = ['ID', 'Service', 'Tache','ActionsTache','actions'];
-  
+  Hide : boolean = false;
   services!: Service[];
   selectedOption:string="Voir les taches";
   success!:string;
@@ -89,11 +89,17 @@ export class ServicesComponent implements OnInit {
           results.push(ser);
       }
     }
-    this.services = results;
-    if (results.length === 0 || !key) {
-      this.getService();
+        this.services = results;
+        if (results.length === 0 ) {
+          this.Hide = true;
+        }
+        if(!key){
+          this.getService();
+        }
+        this.Hide = false;
     }
-}  refresh()
+
+refresh()
 {
 this.ngOnInit();
 }

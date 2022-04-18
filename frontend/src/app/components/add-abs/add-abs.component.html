@@ -37,13 +37,13 @@
         </div>
         <div class="form-group">
             <label>Heure Debut</label>
-            <input type="text" class ="form-control" id = "heureDebut"
+            <input type="time" class ="form-control" id = "heureDebut"
                 [(ngModel)] = "abs.heureDebut" name = "heureDebut" placeholder="Saisir heure debut" formControlName="debut">
                 <small *ngIf="registerForm.get('debut')!.invalid" class="text-danger" style="margin-left:2px;">*heure debut required</small>
         </div>
         <div class="form-group">
             <label>Heure Fin</label>
-            <input type="text" class ="form-control" id = "heureFin"
+            <input type="time" class ="form-control" id = "heureFin"
                 [(ngModel)] = "abs.heureFin" name = "heureFin" placeholder="Saisir heure fin" formControlName="fin">
                 <small *ngIf="registerForm.get('fin')!.invalid" class="text-danger" style="margin-left:2px;">*heure fin required</small>
         </div>

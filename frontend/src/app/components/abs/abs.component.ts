@@ -17,6 +17,7 @@ export class AbsComponent implements OnInit {
   
   displayedColumns = ['Collaborateur', 'Service', 'Tache','Date','Motif','viewDetails','actions'];
   Absens!: Abs[];
+  Hide : boolean = false;
  // Abs!: Abs;
   success!:string;
   state:string="";
@@ -72,13 +73,17 @@ export class AbsComponent implements OnInit {
          || Absens.date!.toLowerCase().indexOf(key.toLowerCase ()) !== -1
          || Absens.motif!.toLowerCase().indexOf(key.toLowerCase ()) !== -1) {
             results.push(Absens);
+          }
         }
-      }
-      this.Absens = results;
-      if (results.length === 0 || !key) {
-        this.getAbs();
-      }
-  }
+        this.Absens = results;
+        if (results.length === 0 ) {
+          this.Hide = true;
+        }
+        if(!key){
+          this.getAbs();
+        }
+        this.Hide = false;
+    }
 
 refresh()
 {
