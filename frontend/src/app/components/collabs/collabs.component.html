@@ -22,9 +22,7 @@
 <a [routerLink]="['../add-collab']" mat-mini-fab color="accent"><mat-icon>add</mat-icon></a>
 <button (click)="refresh()"  mat-mini-fab color="primary" style="margin-left: 600px;"><mat-icon>refresh</mat-icon></button>
 
-<div *ngIf="collabs.length > 0">
-  
-
+<div *ngIf="!Hide">
     <table mat-table #table [dataSource]="collabs">
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> Matricule </mat-header-cell>
@@ -50,8 +48,8 @@
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
     
-    
-    
-    
   </table>
+</div>
+<div *ngIf="collabs.length == 0 && Hide === true">
+ ggggggggr
 </div>
