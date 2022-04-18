@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class CollabsComponent implements OnInit {
   displayedColumns = ['id', 'nom', 'prenom','actions'];
   Success : boolean = false;
+  Hide : boolean = false;
   success!:string;
   state:string="";
   type:string="";
@@ -69,9 +70,13 @@ export class CollabsComponent implements OnInit {
       }
     }
     this.collabs = results;
-    if (results.length === 0 || !key) {
+    if (results.length === 0 ) {
+      this.Hide = true;
+    }
+    if(!key){
       this.getCollabs();
     }
+    this.Hide = false;
 }
   
 }
