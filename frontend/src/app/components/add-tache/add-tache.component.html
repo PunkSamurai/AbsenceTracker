@@ -1,36 +1,30 @@
-<div class="col-md-6 offset-md-3">
-    <h3> Create tache and service </h3>
+<div class="col-md-12">
+    <div class="mat-display-1 mt-3 text-center"> Ajouter Service </div>
     <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Ajouter Success!</strong>Les Donnes sont entees avec success.
         <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <form (ngSubmit) = "onSubmit()">
-        <div class="form-group">
-            <label>Service identifiant</label>
-            <input type="text" class ="form-control" id = "matr"
-                [(ngModel)] = "service.id" name = "matr">
-        </div>
+    <form [formGroup]="registerForm" (ngSubmit) = "onSubmit()">
+  
     
         <div class="form-group">
             <label> Intitule Service</label>
             <input type="text" class ="form-control" id = "nom"
-                [(ngModel)] = "service.intitulService" name = "nom" >
+                [(ngModel)] = "service.intitulService" name = "nom" placeholder="Saisir intitule service" formControlName="serv">
+                <small *ngIf="registerForm.get('serv')!.invalid" class="text-danger" style="margin-left:2px;">*Service intitule required</small>
         </div>
     
-        <div class="form-group">
-            <label> tache identifiant</label>
-            <input type="text" class ="form-control" id = "id"
-                [(ngModel)] = "tache.id" name = "id">
-        </div>
+      
         <div class="form-group">
             <label> tache intitule</label>
             <input type="text" class ="form-control" id = "prenom"
-                [(ngModel)] = "tache.intitulTache" name = "prenom">
+                [(ngModel)] = "tache.intitulTache" name = "prenom" placeholder="Saisir intitule tache" formControlName="task">
+                <small *ngIf="registerForm.get('task')!.invalid" class="text-danger" style="margin-left:2px;">*tache intitule required</small>
         </div>
     
-        <button class = "btn btn-success" type ="submit">Submit</button>
+        <button class = "btn btn-success"  [disabled]="registerForm.invalid" type ="submit">Ajouter</button>
     
     </form>
     </div> 

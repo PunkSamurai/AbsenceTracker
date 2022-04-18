@@ -1,31 +1,29 @@
-<div class="col-md-6 offset-md-3">
-    <h3 class="text-center mt-3"> Create Collabourateur </h3>
-    <!-- <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Ajouter Success!</strong>Les Donnes sont entees avec success.
-        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
-    <form (ngSubmit) = "onSubmit()">
+<div class="col-md-12">
+    <div class="mat-display-1 mt-3 text-center"> Ajouter Collabourateur </div>
+
+    <form [formGroup]="registerForm" (ngSubmit) = "onSubmit()">
         <div class="form-group">
             <label> Matricule</label>
             <input type="text" class ="form-control" id = "matr"
-                [(ngModel)] = "collab.matr" name = "matr" placeholder="Saisir le matricule">
+                [(ngModel)] = "collab.matr" name = "matr" placeholder="Saisir le matricule" formControlName="matr" >
+                <small *ngIf="registerForm.get('matr')!.invalid" class="text-danger" style="margin-left:2px;">*Matricule required</small>
         </div>
     
         <div class="form-group">
             <label> Nom</label>
             <input type="text" class ="form-control" id = "nom"
-                [(ngModel)] = "collab.nom" name = "nom" placeholder="Saisir le nom">
+                [(ngModel)] = "collab.nom" name = "nom" placeholder="Saisir le nom" formControlName="nom">
+                <small *ngIf="registerForm.get('nom')!.invalid" class="text-danger" style="margin-left:2px;">*Nom required</small>
         </div>
     
         <div class="form-group">
             <label> Prenom</label>
             <input type="text" class ="form-control" id = "prenom"
-                [(ngModel)] = "collab.prenom" name = "prenom" placeholder="Saisir le prénom">
+                [(ngModel)] = "collab.prenom" name = "prenom" placeholder="Saisir le prénom" formControlName="prenom">
+                <small *ngIf="registerForm.get('prenom')!.invalid" class="text-danger" style="margin-left:2px;">*Prenom required</small>
         </div >
     
-        <button class = "btn btn-success mt-3" type ="submit">Enregistrer</button>
+        <button class = "btn btn-success" type ="submit" [disabled]="registerForm.invalid">Ajouter</button>
     
     </form>
     </div> 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Abs } from 'src/app/Absence';
 import { Collab } from 'src/app/Collabs';
@@ -16,6 +17,7 @@ export class AddAbsComponent implements OnInit {
   collabs?: Collab[];
   taches?: Tache[];
   abs: Abs = new Abs();
+  registerForm!:FormGroup;
   constructor(private absService:AbsService,private collabService : CollabsService,private tacheService : TacheService,private router :Router) {
   
     this.collabService.getCollabs().subscribe(items =>{
@@ -44,6 +46,15 @@ export class AddAbsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.registerForm= new FormGroup({
+      'collab': new FormControl(null,[Validators.required]),
+      'tache': new FormControl(null,[Validators.required]),
+      'motif': new FormControl(null,[Validators.required]),
+      'date': new FormControl(null,[Validators.required]),
+      'debut': new FormControl(null,[Validators.required]),
+      'fin': new FormControl(null,[Validators.required])
+    }
+    )
     this.getCollabs();
     this.getTaches();
   }

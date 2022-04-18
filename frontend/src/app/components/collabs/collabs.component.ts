@@ -78,5 +78,8 @@ export class CollabsComponent implements OnInit {
     }
     this.Hide = false;
 }
-  
+refresh()
+{
+this.ngOnInit();
+}
 }

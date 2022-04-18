@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Service {
 		@Column(nullable = false)
 	    private String intitulService;
 
-	    @OneToMany(mappedBy="service")
+	    @OneToMany(mappedBy="service",cascade=CascadeType.ALL)
 		private List<Tache> taches;
 
 

@@ -29,7 +29,7 @@ import javax.persistence.*;
     @Column(nullable = false)
     private String prenom;
 
-	@OneToMany(mappedBy = "collaborateur")
+	@OneToMany(mappedBy = "collaborateur",cascade=CascadeType.ALL)
 	private List<Absence> absences;
 
 

@@ -93,5 +93,8 @@ export class ServicesComponent implements OnInit {
     if (results.length === 0 || !key) {
       this.getService();
     }
+}  refresh()
+{
+this.ngOnInit();
 }
   }

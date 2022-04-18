@@ -28,7 +28,7 @@ public class Tache {
     @ManyToOne
     private Service service;
 
-	@OneToMany(mappedBy = "tache")
+	@OneToMany(mappedBy = "tache",cascade=CascadeType.ALL)
 	private List<Absence> absences;
 	 
 

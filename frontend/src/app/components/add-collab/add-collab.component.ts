@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Collab } from 'src/app/Collabs';
 import { CollabsService } from 'src/app/services/collabs.service';
-
 @Component({
   selector: 'app-add-collab',
   templateUrl: './add-collab.component.html',
@@ -11,9 +11,19 @@ import { CollabsService } from 'src/app/services/collabs.service';
 export class AddCollabComponent implements OnInit {
   collab: Collab = new Collab();
   alert: boolean= false;
+  registerForm!:FormGroup;
   constructor(private collabService: CollabsService,private router: Router) { }
 
+
+
+
   ngOnInit(): void {
+    this.registerForm= new FormGroup({
+      'matr': new FormControl(null,[Validators.required]),
+      'nom': new FormControl(null,[Validators.required]),
+      'prenom': new FormControl(null,[Validators.required])
+    }
+    )
   }
   saveCollab() {
     this.collabService.addCollab(this.collab).subscribe(
@@ -28,6 +38,7 @@ export class AddCollabComponent implements OnInit {
   }
   
   onSubmit(){
+ 
     console.log(this.collab);
     this.saveCollab();
     this.alert=true;

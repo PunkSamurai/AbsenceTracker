@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Service } from 'src/app/Service';
 import { ServiceService } from 'src/app/services/service.service';
@@ -15,11 +16,16 @@ export class AddTacheComponent implements OnInit {
   tache: Tache = new Tache();
   service: Service = new Service();
   alert: boolean= false;
+  registerForm!:FormGroup;
 
   constructor(private tacheService: TacheService,private serviceService: ServiceService,private router: Router) { }
 
   ngOnInit(): void {
-    
+    this.registerForm= new FormGroup({
+      'serv': new FormControl(null,[Validators.required]),
+      'task': new FormControl(null,[Validators.required])
+
+    })
   }
 
   saveService() {

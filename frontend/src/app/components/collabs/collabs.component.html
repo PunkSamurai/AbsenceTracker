@@ -5,9 +5,9 @@
     </ol>
 </nav>
 
-<div class="d-flex justify-content-center">
-    <h2> Collabs List</h2>
-</div>
+
+    <div class="mat-display-1 mt-3 text-center" style="margin-bottom:-6px;"> Liste Collaborateurs</div>
+
     <div class="alert alert-{{type}} alert-dismissible {{state}}" role="alert" >
         <!-- {{success}}  -->{{success}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="hide()">
@@ -20,6 +20,7 @@
   </mat-form-field>
 <button (click)="searchEmployees(key.value)"  mat-mini-fab color="primary"><mat-icon>search</mat-icon></button>
 <a [routerLink]="['../add-collab']" mat-mini-fab color="accent"><mat-icon>add</mat-icon></a>
+<button (click)="refresh()"  mat-mini-fab color="primary" style="margin-left: 600px;"><mat-icon>refresh</mat-icon></button>
 
 <div *ngIf="!Hide">
     <table mat-table #table [dataSource]="collabs">
@@ -38,7 +39,7 @@
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
         <mat-cell *matCellDef="let item">
-          <a (click)="updateCollab(item.matr!)" mat-raised-button color="primary">Edit</a>&nbsp;
+          <a (click)="updateCollab(item.matr!)" mat-raised-button color="primary"  style="color:aliceblue;">Edit</a>&nbsp;
           <button (click)="deleteCollab(item.matr!)" mat-button color="warn"><mat-icon>delete</mat-icon></button>
         </mat-cell>
       </ng-container>

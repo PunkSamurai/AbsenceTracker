@@ -1,5 +1,5 @@
-<div class="col-md-6 offset-md-3">
-    <h3>Update Collabourateur </h3>
+<div class="col-md-12">
+    <div class="mat-display-1 mt-3 text-center">Edit Collaborateur </div>
     <form (ngSubmit) = "onSubmit()">
         <div class="form-group">
             <label> Matricule</label>
@@ -12,14 +12,14 @@
             <input type="text" class ="form-control" id = "nom"
                 [(ngModel)] = "collab.nom" name = "nom">
         </div>
-        {{collab.nom}}
+       
         <div class="form-group">
             <label> Prenom</label>
             <input type="text" class ="form-control" id = "prenom"
                 [(ngModel)] = "collab.prenom" name = "prenom">
         </div>
     
-        <button class = "btn btn-success" type ="submit">Submit</button>
+        <button class = "btn btn-success mt-1" type ="submit">Editer</button>
     
     </form>
     </div> 

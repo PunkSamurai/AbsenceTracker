@@ -29,7 +29,7 @@ export class UpdateCollabComponent implements OnInit {
   onSubmit(){
     this.collabService.updateCollab(this.matr, this.collab).subscribe((data)=> console.log(data))
     console.log("request body",this.collab)
-    this.collabService.setSuccess("task updated succesfully ");
+    this.collabService.setSuccess("collab updated succesfully ");
     this.collabService.setStateType("","warning");
     this.goToCollabList();
     }
