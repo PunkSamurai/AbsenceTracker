@@ -17,7 +17,7 @@ public interface AbsenceRepository  extends JpaRepository<Absence,Integer> {
   @Query(value ="SELECT a.collab_tache_id AS collab_tache_id ,c.nom AS nom,c.prenom AS " +
                 "prenom,t.intitul_tache AS intitulTache ,a.date AS date,a.heure_debut AS " +
                 "heurDebut,a.heure_fin AS heurfin,a.motif motif,s.intitul_service AS intitulService " +
-                "FROM Collaborateur c, Tache t ,Absence a,service s WHERE c.matr=a.Collab_matr " +
+                "FROM collaborateur c, tache t ,absence a,service s WHERE c.matr=a.Collab_matr " +
                 "and t.id = a.tache_id and t.service_id =s.id;",nativeQuery = true)
    List<AbsenceInfo> findAbsences();
 

@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface TacheRepository  extends JpaRepository<Tache,Integer> {
 
-    @Query(value ="SELECT t.id AS id ,t.intitul_tache AS intitule_tache,t.service_id as service_id FROM Tache t;",nativeQuery = true)
+    @Query(value ="SELECT t.id AS id ,t.intitul_tache AS intitule_tache,t.service_id as service_id FROM tache t;",nativeQuery = true)
     List<TacheInfo> findAllTaches();
 
 
