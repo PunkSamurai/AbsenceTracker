@@ -1,5 +1,5 @@
 mat-toolbar {
-    background: #004a9f;
+    background: #2E855B;
     color: white;
   }
   
@@ -7,7 +7,7 @@ mat-toolbar {
     margin: 16px;
     width: 200px;
     border-right: none;
-    background: #002b5c;
+    background: #123524;
     color: white;
     border-radius: 10px;
     padding: 16px;
@@ -64,7 +64,7 @@ table{
     text-align:center;
     font-size:11px;
     font-family: Verdana,Sans-Serif;
-    color: #1a084c;
+    color: #123524;
     min-width: 900px;
       height: 300px;
       overflow:auto;    

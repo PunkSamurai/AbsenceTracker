@@ -1,56 +1,53 @@
 <div class="col-md-12">
-    <div class="mat-display-1 mt-3 text-center" style="margin-bottom:-10px;"> Ajouter absence </div>
+    <div class="mat-display-1 mt-3 text-center" style="margin-bottom:-10px;"> Add Absence </div>
 
-    <form [formGroup]="registerForm" (ngSubmit) = "onSubmit()" class="test">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="test">
  
         <div class="form-group">
-        <label>Select Collab : </label>
+        <label>Select Collaborator: </label>
         <select name="status" class="form-select" aria-label="Default select example" [(ngModel)]="abs.collab_matr" formControlName="collab">
-                    <option>voir les collaborateurs</option>
-                    <option *ngFor = "let collab of collabs" value="{{collab.matr}}"> {{collab.nom}}</option>
+                    <option>View collaborators</option>
+                    <option *ngFor="let collab of collabs" value="{{collab.matr}}"> {{collab.nom}}</option>
     
                   </select>
-                  <small *ngIf="registerForm.get('collab')!.invalid" class="text-danger" style="margin-left:2px;">*collab required</small>
+                  <small *ngIf="registerForm.get('collab')!.invalid" class="text-danger" style="margin-left:2px;">*Collaborator required</small>
          </div>
         <div class="form-group">
-        <label>Select Tache : </label>
+        <label>Select Task: </label>
 
         <select name="status" class="form-select" aria-label="Default select example" [(ngModel)]="abs.tache_id" formControlName="tache">
-            <option selected>voir les taches</option>
-            <option *ngFor = "let tache of taches" value="{{tache.id}}"> {{ tache.intitule_tache }} </option>
+            <option selected>View tasks</option>
+            <option *ngFor="let tache of taches" value="{{tache.id}}"> {{ tache.intitule_tache }} </option>
         </select>
-        <small *ngIf="registerForm.get('tache')!.invalid" class="text-danger" style="margin-left:2px;">*tache required</small>
-
+        <small *ngIf="registerForm.get('tache')!.invalid" class="text-danger" style="margin-left:2px;">*Task required</small>
 
         </div>
         <div class="form-group">
-            <label>Absence Motif</label>
-            <input type="text" class ="form-control" id = "motif"
-                [(ngModel)] = "abs.motif" name = "motif" placeholder="Saisir le motif" formControlName="motif">
-                <small *ngIf="registerForm.get('motif')!.invalid" class="text-danger" style="margin-left:2px;">*Motif required</small>
+            <label>Absence Reason</label>
+            <input type="text" class="form-control" id="motif"
+                [(ngModel)]="abs.motif" name="motif" placeholder="Enter reason" formControlName="motif">
+                <small *ngIf="registerForm.get('motif')!.invalid" class="text-danger" style="margin-left:2px;">*Reason required</small>
         </div>
         <div class="form-group">
             <label>Absence Date</label>
-            <input type="date" class ="form-control" id = "date"
-                [(ngModel)] = "abs.date" name = "date" formControlName="date"> 
-                <small *ngIf="registerForm.get('date')!.invalid" class="text-danger" style="margin-left:2px;">*date required</small>
+            <input type="date" class="form-control" id="date"
+                [(ngModel)]="abs.date" name="date" formControlName="date"> 
+                <small *ngIf="registerForm.get('date')!.invalid" class="text-danger" style="margin-left:2px;">*Date required</small>
         </div>
         <div class="form-group">
-            <label>Heure Debut</label>
-            <input type="time" class ="form-control" id = "heureDebut"
-                [(ngModel)] = "abs.heureDebut" name = "heureDebut" placeholder="Saisir heure debut" formControlName="debut">
-                <small *ngIf="registerForm.get('debut')!.invalid" class="text-danger" style="margin-left:2px;">*heure debut required</small>
+            <label>Start Time</label>
+            <input type="time" class="form-control" id="heureDebut"
+                [(ngModel)]="abs.heureDebut" name="heureDebut" placeholder="Enter start time" formControlName="debut">
+                <small *ngIf="registerForm.get('debut')!.invalid" class="text-danger" style="margin-left:2px;">*Start time required</small>
         </div>
         <div class="form-group">
-            <label>Heure Fin</label>
-            <input type="time" class ="form-control" id = "heureFin"
-                [(ngModel)] = "abs.heureFin" name = "heureFin" placeholder="Saisir heure fin" formControlName="fin">
-                <small *ngIf="registerForm.get('fin')!.invalid" class="text-danger" style="margin-left:2px;">*heure fin required</small>
+            <label>End Time</label>
+            <input type="time" class="form-control" id="heureFin"
+                [(ngModel)]="abs.heureFin" name="heureFin" placeholder="Enter end time" formControlName="fin">
+                <small *ngIf="registerForm.get('fin')!.invalid" class="text-danger" style="margin-left:2px;">*End time required</small>
         </div>
-  
 
-    
-        <button class = "btn btn-success" type ="submit" style="margin-bottom:10px;" [disabled]="registerForm.invalid">Ajouter</button>
+        <button class="btn btn-success" type="submit" style="margin-bottom:10px;" [disabled]="registerForm.invalid">Add</button>
     
     </form>
-    </div> 
+</div>

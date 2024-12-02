@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   db:
     image: mysql:8.0
@@ -6,9 +5,8 @@ services:
       - SYS_NICE
     restart: always
     environment:
-      - MYSQL_USER=root
       - MYSQL_DATABASE=db_projet
-      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_ROOT_PASSWORD=password
     ports:
       - '3306:3306'
     volumes:

@@ -1,24 +1,24 @@
 <div class="col-md-12">
-    <div class="mat-display-1 mt-3 text-center">Edite tache et service </div>
-    <form  (ngSubmit) = "onSubmit()">
+    <div class="mat-display-1 mt-3 text-center">Edit Task and Service</div>
+    <form (ngSubmit) = "onSubmit()">
 
         <div class="form-group">
 
-            <label> Intitule Service </label>
+            <label>Service Title</label>
             <input type="text" class ="form-control" id = "service.intitulService"
                 [(ngModel)] = "service.intitulService" name = "service.intitulService" >
         </div>
     
         <div class="form-group">
-            <label> Intitule Tache</label>
+            <label>Task Title</label>
             <input type="text" class ="form-control" id = "intitulTache"
                 [(ngModel)] = "tache.intitulTache" name = "intitulTache">
         </div>
 
     
-        <button class = "btn btn-success mt-3" type ="submit">Editer</button>
+        <button class = "btn btn-success mt-3" type ="submit">Edit</button>
     
     </form>
-    </div> 
+</div> 
 
-    <!-- (ngSubmit) = "onSubmit()"> -- -->
+<!-- (ngSubmit) = "onSubmit()"> -- -->
